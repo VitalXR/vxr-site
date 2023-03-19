@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { NewsComponent } from './news/news.component';
 import { PortalComponent } from './portal/portal.component';
 import { ProjectComponent } from './project/project.component';
+import { SignupFormsComponent } from './signup/signup-forms/signup-forms.component';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'portal', component: PortalComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'signup/forms', component: SignupFormsComponent }
 ];
 
 @NgModule({

@@ -14,6 +14,7 @@ import { NewsComponent } from './news/news.component';
 import { ContactComponent } from './contact/contact.component';
 import { PortalComponent } from './portal/portal.component';
 import { SignupComponent } from './signup/signup.component';
+import { SignupFormsComponent } from './signup/signup-forms/signup-forms.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SignupComponent } from './signup/signup.component';
     ContactComponent,
     PortalComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    SignupFormsComponent
   ],
   imports: [
     BrowserModule,
