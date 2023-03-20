@@ -3,3 +3,17 @@
     Welcome to the portal.
   </p>
 </div>
+
+<button class="btn"
+  (mouseover)="signupforms_btnText='Submit >'" 
+  (mouseout)="signupforms_btnText='Submit'"
+  (click)="route('/signup/forms')">
+  {{signupforms_btnText || 'Submit'}}
+</button>
+
+<button class="btn"
+  (mouseover)="signupforms_btnText='Submit >'" 
+  (mouseout)="signupforms_btnText='Submit'"
+  (click)="route('/organization/add')">
+  {{signupforms_btnText || 'Submit'}}
+</button>

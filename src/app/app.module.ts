@@ -15,6 +15,7 @@ import { ContactComponent } from './contact/contact.component';
 import { PortalComponent } from './portal/portal.component';
 import { SignupComponent } from './signup/signup.component';
 import { SignupFormsComponent } from './signup/signup-forms/signup-forms.component';
+import { AddOrganizationComponent } from './portal/addorganization/addorganization.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SignupFormsComponent } from './signup/signup-forms/signup-forms.compone
     PortalComponent,
     LoginComponent,
     SignupComponent,
-    SignupFormsComponent
+    SignupFormsComponent,
+    AddOrganizationComponent
   ],
   imports: [
     BrowserModule,

@@ -8,7 +8,7 @@ import { Auth } from 'aws-amplify';
 })
 export class LoginComponent {
   username: string = "";
-  password: string = "";
+  pswd: string = "";
   error_message: string = "";
   router: Router;
   btnText: String;
@@ -19,7 +19,7 @@ export class LoginComponent {
 
   async checkCredentials(): Promise<Boolean> {
     try {
-      const user = await Auth.signIn(this.username, this.password);
+      const user = await Auth.signIn(this.username, this.pswd);
       console.log(user);
       if (user != null) return true;
     }
@@ -30,10 +30,11 @@ export class LoginComponent {
 
   async login_navigatio(): Promise<void> {
     if(await this.checkCredentials()) {
+      localStorage.setItem('login', 'true');
       this.router.navigateByUrl("/portal")
     } else {
       this.username = ""
-      this.password = ""
+      this.pswd = ""
       this.error_message = "Invalid username or password."
     }
   }

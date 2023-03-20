@@ -5,6 +5,7 @@ import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NewsComponent } from './news/news.component';
+import { AddOrganizationComponent } from './portal/addorganization/addorganization.component';
 import { PortalComponent } from './portal/portal.component';
 import { ProjectComponent } from './project/project.component';
 import { SignupFormsComponent } from './signup/signup-forms/signup-forms.component';
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'portal', component: PortalComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'signup/forms', component: SignupFormsComponent }
+  { path: 'signup/forms', component: SignupFormsComponent },
+  { path: 'organization/add', component: AddOrganizationComponent }
 ];
 
 @NgModule({

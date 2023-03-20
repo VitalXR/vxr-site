@@ -12,13 +12,14 @@
                 <li class="nav_link"><a class="nav_link_text" routerLinkActive='active' routerLink='/project' [class.active_route]="current_component === '/project'">Project</a></li>
                 <li class="nav_link"><a class="nav_link_text" routerLinkActive='active' routerLink='/news' [class.active_route]="current_component === '/news'">News</a></li>
                 <li class="nav_link"><a class="nav_link_text" routerLinkActive='active' routerLink='/contact' [class.active_route]="current_component === '/contact'">Contact</a></li>
-                <li class="nav_link"><a class="nav_link_text" routerLinkActive='active' routerLink='/login' [class.active_route]="current_component === '/login'">Login</a></li>
-                <li class="nav_link"><a class="nav_link_text" routerLinkActive='active' routerLink='/signup' [class.active_route]="current_component === '/signup'">Signup</a></li>
+                <li *ngIf="!logged_in" class="nav_link"><a class="nav_link_text" routerLinkActive='active' routerLink='/signup' [class.active_route]="current_component === '/signup'">Signup</a></li>
+                <li *ngIf="!logged_in" class="nav_link"><a class="nav_link_text" routerLinkActive='active' routerLink='/login' [class.active_route]="current_component === '/login'">Login</a></li>
+                <li *ngIf="logged_in" class="nav_link"><a class="nav_link_text" routerLinkActive='active' routerLink='/home' (click)="logout()" [class.active_route]="false">Logout</a></li>
             </ul>
         </div>
     </nav>
     <div class='container'>
-    <router-outlet ></router-outlet>
+    <router-outlet></router-outlet>
     </div>
     <p style="width:100%;text-align: center; bottom:0px; padding-bottom: 20px;" class="nav_link_text">© 2021 Vital XR Ltd.</p>
 </div>
