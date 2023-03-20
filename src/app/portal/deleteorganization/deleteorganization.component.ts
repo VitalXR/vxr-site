@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { OrganizationService } from '../organization.service';
 
 @Component({
-  templateUrl: './addorganization.component.html',
-  styleUrls: ['./addorganization.component.scss'],
+  templateUrl: './deleteorganization.component.html',
+  styleUrls: ['./deleteorganization.component.scss'],
   providers: [OrganizationService]
 })
-export class AddOrganizationComponent {
+export class DeleteOrganizationComponent {
   constructor(private orgservice: OrganizationService ) {}
   orgname = "";
   concurrent_users = ''

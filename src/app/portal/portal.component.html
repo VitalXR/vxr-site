@@ -5,15 +5,37 @@
 </div>
 
 <button class="btn"
-  (mouseover)="signupforms_btnText='Submit >'" 
-  (mouseout)="signupforms_btnText='Submit'"
+  (mouseover)="signupforms_btnText='Signup Approvals >'" 
+  (mouseout)="signupforms_btnText='Signup Approvals'"
   (click)="route('/signup/forms')">
-  {{signupforms_btnText || 'Submit'}}
+  {{signupforms_btnText || 'Signup Approvals'}}
 </button>
 
 <button class="btn"
-  (mouseover)="signupforms_btnText='Submit >'" 
-  (mouseout)="signupforms_btnText='Submit'"
+  (mouseover)="addorgs_btnText='Add Orgs >'" 
+  (mouseout)="addorgs_btnText='Add Orgs'"
   (click)="route('/organization/add')">
-  {{signupforms_btnText || 'Submit'}}
+  {{addorgs_btnText || 'Add Orgs'}}
 </button>
+
+<button class="btn"
+  (mouseover)="deleteorgs_btnText='Delete Orgs >'" 
+  (mouseout)="deleteorgs_btnText='Delete Orgs'"
+  (click)="route('/organization/delete')">
+  {{deleteorgs_btnText || 'Delete Orgs'}}
+</button>
+
+<button class="btn"
+  (mouseover)="getorgs_btnText='Get Orgs >'" 
+  (mouseout)="getorgs_btnText='Get Orgs'"
+  (click)="route('/organization/get')">
+  {{getorgs_btnText || 'Get Orgs'}}
+</button>
+
+<button class="btn"
+  (mouseover)="updateorgs_btnText='Update Orgs >'" 
+  (mouseout)="updateorgs_btnText='Update Orgs'"
+  (click)="route('/organization/update')">
+  {{updateorgs_btnText || 'Update Orgs'}}
+</button>
+
