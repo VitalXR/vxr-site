@@ -7,7 +7,7 @@
   </tr>
   <tr *ngFor="let row of data; let i = index">
     <td *ngFor="let column of row" class="table_cell">{{column}}</td>
-    <td><button class="btn" (click)="delete(i)">Approve</button></td>
+    <td *ngIf="row[row.length - 1] == '√'" ><button class="btn" (click)="delete(i)">Delete</button></td>
   </tr>
   <div style="padding-top: 10px"></div>
 </table>
