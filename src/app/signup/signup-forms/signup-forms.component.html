@@ -1,6 +1,20 @@
 Signup forms
+<p *ngIf="failed">{{failed}}</p>
 
-<table>
+<div *ngIf="!failed">
+  <div *ngIf="!data.length">Loading...</div>
+  <table *ngIf="data.length">
+    <tr>
+      <th *ngFor="let c of columns" class="column">{{c}}</th>
+    </tr>
+    <tr *ngFor="let row of data">
+      <td *ngFor="let column of row" class="column">{{column}}</td>
+      <td class="column"><button (click)="onApprove(row)">Approve</button></td>
+    </tr>
+  </table>
+</div>
+
+<!-- <table *ngIf="!failed">
   <tr>
     <th class="column">Attr 1</th>
     <th class="column">Attr 2</th>
@@ -13,7 +27,7 @@ Signup forms
     <td class="column">{{item.attr3}}</td>
     <td class="column">{{item.attr4}}</td>
   </tr>
-</table>
+</table> -->
 
 <!-- <div *ngIf="!submit" style="display: flex; flex-direction: column; margin-bottom: 150px;">
   <form (submit)="onSubmit()" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">

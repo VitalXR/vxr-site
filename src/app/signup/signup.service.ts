@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
-
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { Auth } from 'aws-amplify';
 
 @Injectable()
 export class SignupService {
@@ -20,8 +17,11 @@ export class SignupService {
       usage
     };
 
-    console.log(body);
-
     return this.http.post(this.signupUrl, body);
+  }
+
+  async getSignupForms() {
+    const token = (await Auth.currentSession()).getIdToken().getJwtToken();
+    return this.http.get(this.signupUrl, {headers: {Authorization: token}});
   }
 }

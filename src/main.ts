@@ -20,6 +20,14 @@ Amplify.configure({
   API: {
     endpoints: [
       {
+        name: 'vxr-dev-ag',
+        endpoint: 'https://tdsy3cgt61.execute-api.ca-central-1.amazonaws.com/dev',
+        custom_header: async () => {
+          const token = (await Auth.currentSession()).getIdToken().getJwtToken();
+          return { Authorization: token }
+        }
+      },
+      {
         name: 'VitalXRBackendStack',
         endpoint: 'https://2lexkrigof.execute-api.ca-central-1.amazonaws.com/Stage',
         custom_header: async () => {
