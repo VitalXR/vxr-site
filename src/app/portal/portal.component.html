@@ -1,41 +1,50 @@
-<div class="card">
-  <p style="margin: 40px; font-size: 30px; color: grey">
+<div class="card" style="border-radius: 50px; background-color: rgba(31, 215, 224, 0.4);">
+  <p style="margin: 40px; font-size: 30px; color: white;">
     Welcome to the portal.
   </p>
 </div>
 
-<button class="btn"
+<button class="btn" *ngIf="userlevel == 'CompanyAdmin'"
   (mouseover)="signupforms_btnText='Signup Approvals >'" 
   (mouseout)="signupforms_btnText='Signup Approvals'"
   (click)="route('/signup/forms')">
   {{signupforms_btnText || 'Signup Approvals'}}
 </button>
 
-<button class="btn"
-  (mouseover)="addorgs_btnText='Add Orgs >'" 
-  (mouseout)="addorgs_btnText='Add Orgs'"
-  (click)="route('/organization/add')">
-  {{addorgs_btnText || 'Add Orgs'}}
-</button>
-
-<button class="btn"
-  (mouseover)="deleteorgs_btnText='Delete Orgs >'" 
-  (mouseout)="deleteorgs_btnText='Delete Orgs'"
+<button class="btn" *ngIf="userlevel == 'CompanyAdmin'"
+  (mouseover)="deleteorg_btnText='Delete Organization >'" 
+  (mouseout)="deleteorg_btnText='Delete Organization'"
   (click)="route('/organization/delete')">
-  {{deleteorgs_btnText || 'Delete Orgs'}}
+  {{deleteorg_btnText || 'Delete Organization'}}
 </button>
 
-<button class="btn"
+<button class="btn" *ngIf="userlevel == 'VxrAdmin'"
+  (mouseover)="addorgs_btnText='New Organization >'" 
+  (mouseout)="addorgs_btnText='New Organization'"
+  (click)="route('/organizations/add')">
+  {{addorgs_btnText || 'New Organization'}}
+</button>
+
+<button class="btn" *ngIf="userlevel == 'VxrAdmin'"
   (mouseover)="getorgs_btnText='View Organizations >'" 
   (mouseout)="getorgs_btnText='View Organizations'"
-  (click)="route('/organization/get')">
+  (click)="route('/organizations/get')">
   {{getorgs_btnText || 'View Organizations'}}
 </button>
 
-<button class="btn"
+<button class="btn" *ngIf="userlevel == 'VxrAdmin'"
+  (mouseover)="deleteorgs_btnText='Delete Organization >'" 
+  (mouseout)="deleteorgs_btnText='Delete Organization'"
+  (click)="route('/organizations/delete')">
+  {{deleteorgs_btnText || 'Delete Organization'}}
+</button>
+
+
+<button class="btn" 
   (mouseover)="updateorgs_btnText='Update Orgs >'" 
   (mouseout)="updateorgs_btnText='Update Orgs'"
   (click)="route('/organization/update')">
   {{updateorgs_btnText || 'Update Orgs'}}
+  Unfinished
 </button>
 

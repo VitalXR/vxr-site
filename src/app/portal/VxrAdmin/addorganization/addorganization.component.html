@@ -1,4 +1,4 @@
-<div *ngIf="!submit" style="display: flex; flex-direction: column; margin-bottom: 150px;">
+<div *ngIf="!submit" style="display: flex; flex-direction: column; margin-bottom: 220px;">
   <form (submit)="onSubmit()" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
     <div style="display: flex;">
       <input class="input_field" type="text" [(ngModel)]="orgname" name="orgname" placeholder="Organization Name" required>
@@ -17,5 +17,5 @@
 
 
 <div *ngIf="submit" class="submit_text">
-  Organization created. 
+  Organization successfully created.
 </div>

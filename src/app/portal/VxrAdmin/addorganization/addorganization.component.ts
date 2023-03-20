@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { OrganizationService } from '../organization.service';
+import { OrganizationService } from '../../organization.service';
 
 @Component({
   templateUrl: './addorganization.component.html',

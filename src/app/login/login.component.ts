@@ -21,16 +21,26 @@ export class LoginComponent {
     try {
       const user = await Auth.signIn(this.username, this.pswd);
       console.log(user);
-      if (user != null) return true;
+      if (user != null) {
+        let groups: any[] = user.signInUserSession.idToken.payload['cognito:groups']
+        let usertype = 'NormalUser'
+        if(groups.indexOf("VxrAdmin") !== -1) {
+          usertype = 'VxrAdmin'
+        } else if(groups.indexOf('CompanyAdmin') !== -1) {
+          usertype = 'CompanyAdmin'
+        }
+        localStorage.setItem('accessLevel', usertype)
+        localStorage.setItem('login', 'true');
+        return true
+      };
     }
     catch (e) {
       return false;
     }
   }
 
-  async login_navigatio(): Promise<void> {
+  async login_navigation(): Promise<void> {
     if(await this.checkCredentials()) {
-      localStorage.setItem('login', 'true');
       this.router.navigateByUrl("/portal")
     } else {
       this.username = ""

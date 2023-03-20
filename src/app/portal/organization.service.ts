@@ -49,6 +49,7 @@ export class OrganizationService {
   }
 
   deleteOrg(id) {
-    // ue the delete method
+    const params = new HttpParams().set('id', id);  
+    return this.http.delete<any>(this.orgUrl, {params})
   }
 }
