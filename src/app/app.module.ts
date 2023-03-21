@@ -15,7 +15,6 @@ import { ContactComponent } from './contact/contact.component';
 import { PortalComponent } from './portal/portal.component';
 import { SignupComponent } from './signup/signup.component';
 import { SignupFormsComponent } from './signup/signup-forms/signup-forms.component';
-import { AddOrganizationComponent } from './portal/addorganization/addorganization.component';
 import { InviteUserComponent } from './portal/invite-user/invite-user.component';
 import { ConfirmuUserComponent } from './portal/confirm-user/confirm-user.component';
 import { ViewUsersComponent } from './portal/view-users/view-users.component';
@@ -40,7 +39,7 @@ import { DeleteOrganizationsComponent } from './portal/VxrAdmin/deleteorganizati
     AddOrganizationComponent,
     InviteUserComponent,
     ConfirmuUserComponent,
-    ViewUsersComponent
+    ViewUsersComponent,
     DeleteOrganizationComponent,
     GetOrganizationComponent,
     UpdateOrganizationComponent,
