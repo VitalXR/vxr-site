@@ -20,6 +20,6 @@ export class AddOrganizationService {
     // let header = new HttpHeaders();
     // header = header.append('content-type', 'application/json');
     // return this.http.post(this.URL , body, {headers : header});
-    return this.http.put<any>(this.addOrgUrl,{body: JSON.stringify(body)});
+    return this.http.put<any>(this.addOrgUrl,body);
   }
 }

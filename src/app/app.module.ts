@@ -16,6 +16,9 @@ import { PortalComponent } from './portal/portal.component';
 import { SignupComponent } from './signup/signup.component';
 import { SignupFormsComponent } from './signup/signup-forms/signup-forms.component';
 import { AddOrganizationComponent } from './portal/addorganization/addorganization.component';
+import { InviteUserComponent } from './portal/invite-user/invite-user.component';
+import { ConfirmuUserComponent } from './portal/confirm-user/confirm-user.component';
+import { ViewUsersComponent } from './portal/view-users/view-users.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { AddOrganizationComponent } from './portal/addorganization/addorganizati
     LoginComponent,
     SignupComponent,
     SignupFormsComponent,
-    AddOrganizationComponent
+    AddOrganizationComponent,
+    InviteUserComponent,
+    ConfirmuUserComponent,
+    ViewUsersComponent
   ],
   imports: [
     BrowserModule,
