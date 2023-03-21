@@ -19,6 +19,11 @@ import { AddOrganizationComponent } from './portal/addorganization/addorganizati
 import { InviteUserComponent } from './portal/invite-user/invite-user.component';
 import { ConfirmuUserComponent } from './portal/confirm-user/confirm-user.component';
 import { ViewUsersComponent } from './portal/view-users/view-users.component';
+import { AddOrganizationComponent } from './portal/VxrAdmin/addorganization/addorganization.component';
+import { DeleteOrganizationComponent } from './portal/CompanyAdmin/deleteorganization/deleteorganization.component';
+import { GetOrganizationComponent } from './portal/VxrAdmin/getorganizations/getorganization.component';
+import { UpdateOrganizationComponent } from './portal/CompanyAdmin/updateorganization/updateorganization.component';
+import { DeleteOrganizationsComponent } from './portal/VxrAdmin/deleteorganizations/deleteorganizations.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +41,10 @@ import { ViewUsersComponent } from './portal/view-users/view-users.component';
     InviteUserComponent,
     ConfirmuUserComponent,
     ViewUsersComponent
+    DeleteOrganizationComponent,
+    GetOrganizationComponent,
+    UpdateOrganizationComponent,
+    DeleteOrganizationsComponent
   ],
   imports: [
     BrowserModule,
