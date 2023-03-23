@@ -39,11 +39,6 @@ export class OrganizationService {
     return this.http.get<any>(this.orgUrl)
   }
 
-  getOrg(id) {
-    // missing id as param
-    return this.http.get<any>(this.orgUrl)
-  }
-
   updateOrgField(id, field, new_field) {
     // use the patch to update a single field, use the put to update the entire thing
   }
@@ -51,5 +46,20 @@ export class OrganizationService {
   deleteOrg(id) {
     const params = new HttpParams().set('id', id);  
     return this.http.delete<any>(this.orgUrl, {params})
+  }
+
+  getOrg(id) {
+    console.log(id)
+    const params = new HttpParams().set('id', id);  
+    return this.http.get<any>(this.orgUrl, {params})
+  }
+
+  updateOrg(id, field, value) {
+    const body = {
+      'field': field,
+      "value": value
+    }
+    const params = new HttpParams().set('id', id);  
+    return this.http.patch<any>(this.orgUrl, JSON.stringify(body), {params}).subscribe(e => console.log(e))
   }
 }

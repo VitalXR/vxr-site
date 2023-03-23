@@ -23,6 +23,7 @@ import { DeleteOrganizationComponent } from './portal/CompanyAdmin/deleteorganiz
 import { GetOrganizationComponent } from './portal/VxrAdmin/getorganizations/getorganization.component';
 import { UpdateOrganizationComponent } from './portal/CompanyAdmin/updateorganization/updateorganization.component';
 import { DeleteOrganizationsComponent } from './portal/VxrAdmin/deleteorganizations/deleteorganizations.component';
+import { UpdateOrganizationsComponent } from './portal/VxrAdmin/updateorganizations/updateorganization.scomponent';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { DeleteOrganizationsComponent } from './portal/VxrAdmin/deleteorganizati
     DeleteOrganizationComponent,
     GetOrganizationComponent,
     UpdateOrganizationComponent,
-    DeleteOrganizationsComponent
+    DeleteOrganizationsComponent,
+    UpdateOrganizationsComponent,
   ],
   imports: [
     BrowserModule,

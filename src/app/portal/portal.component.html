@@ -18,6 +18,13 @@
   {{deleteorg_btnText || 'Delete Organization'}}
 </button>
 
+<button class="btn" *ngIf="userlevel == 'CompanyAdmin'"
+  (mouseover)="updateorgs_btnText='Update Organization >'" 
+  (mouseout)="updateorgs_btnText='Update Organitzation'"
+  (click)="route('/organization/update')">
+  {{updateorgs_btnText || 'Update Organization'}}
+</button>
+
 <button class="btn" *ngIf="userlevel == 'VxrAdmin'"
   (mouseover)="addorgs_btnText='New Organization >'" 
   (mouseout)="addorgs_btnText='New Organization'"
@@ -39,12 +46,10 @@
   {{deleteorgs_btnText || 'Delete Organization'}}
 </button>
 
-
-<button class="btn" 
-  (mouseover)="updateorgs_btnText='Update Orgs >'" 
-  (mouseout)="updateorgs_btnText='Update Orgs'"
-  (click)="route('/organization/update')">
-  {{updateorgs_btnText || 'Update Orgs'}}
-  Unfinished
+<button class="btn" *ngIf="userlevel == 'VxrAdmin'"
+  (mouseover)="updateorgs_btnText='Update Organizations >'" 
+  (mouseout)="updateorgs_btnText='Update Organitzations'"
+  (click)="route('/organizations/update')">
+  {{updateorgs_btnText || 'Update Organizations'}}
 </button>
 

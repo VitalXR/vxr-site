@@ -11,8 +11,8 @@ export class DeleteOrganizationComponent {
   constructor(private orgservice: OrganizationService, private router: Router) {}
   btnText = ''
   delete() {
-    console.log('clicked')
-    localStorage.setItem('login', 'false');
+    let org_id = Number(localStorage.getItem('org_id'))
+    this.orgservice.deleteOrg(org_id)
     this.router.navigateByUrl("/home")
   }
 }

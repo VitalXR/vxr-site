@@ -17,6 +17,7 @@ import { ProjectComponent } from './project/project.component';
 import { SignupFormsComponent } from './signup/signup-forms/signup-forms.component';
 import { SignupComponent } from './signup/signup.component';
 import { DeleteOrganizationsComponent } from './portal/VxrAdmin/deleteorganizations/deleteorganizations.component';
+import { UpdateOrganizationsComponent } from './portal/VxrAdmin/updateorganizations/updateorganization.scomponent';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'organizations/add', component: AddOrganizationComponent },
   { path: 'organizations/delete', component: DeleteOrganizationsComponent },
   { path: 'organizations/get', component: GetOrganizationComponent },
+  { path: 'organizations/update', component: UpdateOrganizationsComponent }
 
 ];
 
