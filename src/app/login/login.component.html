@@ -1,17 +1,38 @@
-<div style="display: flex; flex-direction: column; margin-bottom: 150px;">
-  <form (submit)="login_navigation()" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-    <input class="input_field" type="text" [(ngModel)]="username" name="username" placeholder="Username" required>
-    <input style="margin-top: 30px" class="input_field" type="password" [(ngModel)]="pswd" name="pswd" placeholder="Password" required>
-    <p style="color: red; margin-left: 20px">
-      {{error_message}}
-    </p>
-    <div style="display: flex; justify-content: flex-end;">
-      <button class="btn" type="submit"
-        (mouseover)="btnText='Submit >'" 
-        (mouseout)="btnText='Submit'"
-        [disabled]='username == "" || pswd == ""'>
-        {{btnText || 'Submit'}}
-      </button>
+<div>
+  <div *ngIf="!needConfirm" style="display: flex; flex-direction: column; margin-bottom: 150px;">
+    <form (submit)="login_navigation()" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+      <input class="input_field" type="text" [(ngModel)]="username" name="username" placeholder="Username" required>
+      <input style="margin-top: 30px" class="input_field" type="password" [(ngModel)]="pswd" name="pswd" placeholder="Password" required>
+      <p style="color: red; margin-left: 20px">
+        {{error_message}}
+      </p>
+      <div style="display: flex; justify-content: flex-end;">
+        <button class="btn" type="submit"
+          (mouseover)="btnText='Submit >'" 
+          (mouseout)="btnText='Submit'"
+          [disabled]='username == "" || pswd == ""'>
+          {{btnText || 'Submit'}}
+        </button>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="needConfirm">
+    <div *ngIf="!submit" style="display: flex; flex-direction: column; margin-bottom: 150px;">
+      <form (submit)="onSubmit()" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+        <div style="display: flex;">
+          <input class="input_field" type="password" [(ngModel)]="newPasswd" name="newPasswd" placeholder="New Password" required>
+          <p style="color: red; margin-left: 20px">
+            {{error_message}}
+          </p>
+        </div>
+        <div style="display: flex; justify-content: flex-end;">
+          <button class="btn" type="submit"
+            (mouseover)="btnText='Submit >'" 
+            (mouseout)="btnText='Submit'">
+            {{btnText || 'Submit'}}
+          </button>
+        </div>
+      </form>
     </div>
-  </form>
+  </div>
 </div>

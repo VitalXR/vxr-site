@@ -40,26 +40,6 @@ export class ViewUsersComponent {
     
   }
 
-  onApprove(row: string[]) {
-    const api = 'VitalXRBackendStack';
-    const path = '/signup/approve';
-    const init = {
-      response: true,
-      body: {
-        org: row[3],
-        email: row[2]
-      }
-    };
-
-    API.post(api, path, init)
-      .then(res => console.log(res))
-      .then(() => {
-        this.getData();
-        this.parseDataJson();
-      })
-      .catch(e => console.log(e));
-  }
-
   private async getData() {
     try {
       const res = await this.portalService.getAllUsers();

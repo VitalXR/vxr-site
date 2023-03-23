@@ -80,6 +80,8 @@ export class SignupFormsComponent {
   }
 
   private parseDataJson() {
+    this.data.splice(0, this.data.length);
+    console.log(this.data);
     const data: string[][] = JSON.parse(this.dataJson);
     data.forEach(row => {
       row[row.length-1] = new Date(parseInt(row[row.length-1]) * 1000).toLocaleString();

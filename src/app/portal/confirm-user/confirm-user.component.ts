@@ -14,7 +14,7 @@ export class ConfirmuUserComponent {
   submit = false;
   
   onSubmit() {
-    this.portalService.confirmUser(this.email, this.prevPasswd, this.newPasswd);
+    // this.portalService.confirmUser(this.email, this.prevPasswd, this.newPasswd);
     this.submit = true
   }
 }

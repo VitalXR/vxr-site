@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { Auth } from 'aws-amplify';
 
 @Component({
   selector: 'app-root',
@@ -24,5 +25,6 @@ export class AppComponent {
   }
   logout() {
     localStorage.setItem('login', 'false');
+    Auth.signOut();
   }
 }

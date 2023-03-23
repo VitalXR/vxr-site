@@ -37,24 +37,23 @@ export class PortalService {
     console.log(res);
   }
 
-  async confirmUser(email: string, prevPasswd: string, newPasswd: string) {
-    const user = await Auth.signIn(email, prevPasswd);
-    console.log(user);
-    const token = (await Auth.currentSession()).getAccessToken().getJwtToken();
+  async confirmUser(user: any, newPasswd: string) {
+    return await Auth.completeNewPassword(user, newPasswd);
+  }
 
-    const api = 'vxr-dev-ag';
-    const path = '/user/change-passwd'
-
-    const init = {
-      response: true,
-      body: {
-        prevPasswd,
-        newPasswd,
-        token
-      }};
-
-    const res = await API.post(api, path, init);
-    console.log(res);
+  async signIn(email: string, passwd: string) {
+    const user = await Auth.signIn(email, passwd);
+    if (user != null) {
+      let groups: any[] = user.signInUserSession.idToken.payload['cognito:groups']
+      let usertype = 'NormalUser'
+      if(groups.indexOf("VxrAdmin") !== -1) {
+        usertype = 'VxrAdmin'
+      } else if(groups.indexOf('CompanyAdmin') !== -1) {
+        usertype = 'CompanyAdmin'
+      }
+      localStorage.setItem('accessLevel', usertype)
+      localStorage.setItem('login', 'true');
+    };
   }
 
   async getAllUsers() {
