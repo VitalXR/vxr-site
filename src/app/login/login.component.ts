@@ -48,7 +48,7 @@ export class LoginComponent {
 
   async onSubmit() {
     if (!this.isValidPasswd(this.newPasswd)) {
-      this.error_message = "invalid password";
+      this.error_message = "Password must be 8 characters, and include 1 uppercase, lowercase, and special character.";
       return;
     }
     try {

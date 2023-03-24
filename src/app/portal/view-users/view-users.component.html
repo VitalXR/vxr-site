@@ -1,14 +1,12 @@
-Signup forms
-<p *ngIf="failed">{{failed}}</p>
-
-<div *ngIf="!failed">
-  <div *ngIf="!data.length">Loading...</div>
-  <table *ngIf="data.length">
-    <tr>
-      <th *ngFor="let c of columns" class="column">{{c}}</th>
-    </tr>
-    <tr *ngFor="let row of data">
-      <td *ngFor="let column of row" class="column">{{column}}</td>
-    </tr>
-  </table>
-</div>
+<span class="text">Organization Users</span>
+<div *ngIf="!data.length" class="text">Loading...</div>
+<table *ngIf="data.length" class="table_color">
+  <div style="padding-top: 10px"></div>
+  <tr>
+    <th *ngFor="let c of columns" class="table_cell">{{c}}</th>
+  </tr>
+  <tr *ngFor="let row of data">
+    <td *ngFor="let column of row" class="table_cell">{{column}}</td>
+  </tr>
+  <div style="padding-top: 10px"></div>
+</table>

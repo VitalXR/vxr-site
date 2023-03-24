@@ -4,25 +4,57 @@
   </p>
 </div>
 
-<button class="btn" *ngIf="userlevel == 'CompanyAdmin'"
-  (mouseover)="signupforms_btnText='Signup Approvals >'" 
-  (mouseout)="signupforms_btnText='Signup Approvals'"
-  (click)="route('/signup/forms')">
-  {{signupforms_btnText || 'Signup Approvals'}}
+<button class="btn" *ngIf="userlevel == 'NonAdmin'"
+  (mouseover)="viewinformation_btnText='View Information >'" 
+  (mouseout)="viewinformation_btnText='View Information'"
+  (click)="route('/portal')">
+  {{viewinformation_btnText || 'View Information'}}
 </button>
 
-<button class="btn" *ngIf="userlevel == 'CompanyAdmin'"
+<button class="btn" *ngIf="userlevel == 'NonAdmin'"
+  (mouseover)="updateinformation_btnText='Update Information >'" 
+  (mouseout)="updateinformation_btnText='Update Information'"
+  (click)="route('/portal')">
+  {{updateinformation_btnText || 'Update Information'}}
+</button>
+
+<button class="btn" *ngIf="userlevel == 'NonAdmin'"
+  (mouseover)="vrresults_btnText='VR Results >'" 
+  (mouseout)="vrresults_btnText='VR Results'"
+  (click)="route('/portal')">
+  {{vrresults_btnText || 'VR Results'}}
+</button>
+
+
+
+
+
+<button class="btn" *ngIf="userlevel == 'OrgAdmin'"
   (mouseover)="deleteorg_btnText='Delete Organization >'" 
   (mouseout)="deleteorg_btnText='Delete Organization'"
   (click)="route('/organization/delete')">
   {{deleteorg_btnText || 'Delete Organization'}}
 </button>
 
-<button class="btn" *ngIf="userlevel == 'CompanyAdmin'"
+<button class="btn" *ngIf="userlevel == 'OrgAdmin'"
   (mouseover)="updateorgs_btnText='Update Organization >'" 
-  (mouseout)="updateorgs_btnText='Update Organitzation'"
+  (mouseout)="updateorgs_btnText='Update Organization'"
   (click)="route('/organization/update')">
   {{updateorgs_btnText || 'Update Organization'}}
+</button>
+
+<button class="btn" *ngIf="userlevel == 'OrgAdmin'"
+  (mouseover)="adduser_btnText='Invite User >'" 
+  (mouseout)="adduser_btnText='Invite User'"
+  (click)="route('/organization/invite-user')">
+  {{adduser_btnText || 'Invite User'}}
+</button>
+
+<button class="btn" *ngIf="userlevel == 'OrgAdmin'"
+  (mouseover)="viewuser_btnText='View Users >'" 
+  (mouseout)="viewuser_btnText='View Users'"
+  (click)="route('/organization/view')">
+  {{viewuser_btnText || 'View Users'}}
 </button>
 
 <button class="btn" *ngIf="userlevel == 'VxrAdmin'"
@@ -48,8 +80,14 @@
 
 <button class="btn" *ngIf="userlevel == 'VxrAdmin'"
   (mouseover)="updateorgs_btnText='Update Organizations >'" 
-  (mouseout)="updateorgs_btnText='Update Organitzations'"
+  (mouseout)="updateorgs_btnText='Update Organizations'"
   (click)="route('/organizations/update')">
   {{updateorgs_btnText || 'Update Organizations'}}
 </button>
 
+<button class="btn" *ngIf="userlevel == 'VxrAdmin'"
+  (mouseover)="approveorgs_btnText='Approve Organizations >'" 
+  (mouseout)="approveorgs_btnText='Approve Organizations'"
+  (click)="route('/organizations/approve')">
+  {{approveorgs_btnText || 'Approve Organizations'}}
+</button>

@@ -7,18 +7,24 @@ import { Router } from '@angular/router';
 })
 export class PortalComponent {
   router: Router
-  signupforms_btnText: String;
   addorgs_btnText: String
   deleteorg_btnText: String
   deleteorgs_btnText: String
   getorgs_btnText: String
   updateorgs_btnText: String
+  approveorgs_btnText: String
+  adduser_btnText: String
+  viewuser_btnText: String
+  viewinformation_btnText: String
+  updateinformation_btnText: String
+  vrresults_btnText: String
   userlevel = ''
 
 
   constructor(router: Router) {
     this.router = router
     this.userlevel = localStorage.getItem('accessLevel')
+    this.userlevel = 'NonAdmin'
   }
 
   route(url: string){

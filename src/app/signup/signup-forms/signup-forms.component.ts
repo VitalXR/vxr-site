@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { API } from 'aws-amplify';
 
 export interface SignupFormDTO {
@@ -16,7 +17,7 @@ export interface SignupFormDTO {
   styleUrls: ['./signup-forms.component.scss']
 })
 export class SignupFormsComponent {
-  constructor() {
+  constructor(private router: Router) {
     this.data = [];
     this.columns = [
       'First Name',
@@ -25,7 +26,7 @@ export class SignupFormsComponent {
       'Company Name',
       'Usage',
       'Status',
-      'Status'
+      'Request Date'
     ];
 
     const init = async () => {
@@ -42,6 +43,7 @@ export class SignupFormsComponent {
   columns: string[];
 
   onApprove(row: string[]) {
+    row[row.length - 1] = 'true'
     const api = 'VitalXRBackendStack';
     const path = '/signup/approve';
     const init = {
@@ -59,6 +61,8 @@ export class SignupFormsComponent {
         this.parseDataJson();
       })
       .catch(e => console.log(e));
+
+      this.router.navigateByUrl("/portal")
   }
 
   private async getData() {
@@ -86,6 +90,7 @@ export class SignupFormsComponent {
     data.forEach(row => {
       row[row.length-1] = new Date(parseInt(row[row.length-1]) * 1000).toLocaleString();
       this.data.push(row);
+      row.push('false')
     });
   }
 }

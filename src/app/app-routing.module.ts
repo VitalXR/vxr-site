@@ -20,6 +20,7 @@ import { DeleteOrganizationsComponent } from './portal/VxrAdmin/deleteorganizati
 import { UpdateOrganizationsComponent } from './portal/VxrAdmin/updateorganizations/updateorganization.scomponent';
 
 const routes: Routes = [
+  // Home endpoints
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'project', component: ProjectComponent },
@@ -28,18 +29,22 @@ const routes: Routes = [
   { path: 'portal', component: PortalComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'signup/forms', component: SignupFormsComponent },
-  { path: 'organization/add', component: AddOrganizationComponent },
-  { path: 'organization/invite-user', component: InviteUserComponent },
-  { path: 'user/confirm', component: ConfirmuUserComponent },
-  { path: 'users/view', component: ViewUsersComponent },
-  { path: 'organization/delete', component: DeleteOrganizationComponent },
-  { path: 'organization/update', component: UpdateOrganizationComponent },
+
+  // VxrAdmin Endpoints
+  { path: 'organizations/approve', component: SignupFormsComponent },
   { path: 'organizations/add', component: AddOrganizationComponent },
   { path: 'organizations/delete', component: DeleteOrganizationsComponent },
   { path: 'organizations/get', component: GetOrganizationComponent },
-  { path: 'organizations/update', component: UpdateOrganizationsComponent }
+  { path: 'organizations/update', component: UpdateOrganizationsComponent },
 
+  // Company admin endpoints
+  { path: 'organization/invite-user', component: InviteUserComponent },
+  { path: 'organization/view', component: ViewUsersComponent },
+  { path: 'organization/delete', component: DeleteOrganizationComponent },
+  { path: 'organization/update', component: UpdateOrganizationComponent },
+
+  // User change password
+  { path: 'user/confirm', component: ConfirmuUserComponent },
 ];
 
 @NgModule({
