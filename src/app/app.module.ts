@@ -24,6 +24,8 @@ import { GetOrganizationComponent } from './portal/VxrAdmin/getorganizations/get
 import { UpdateOrganizationComponent } from './portal/CompanyAdmin/updateorganization/updateorganization.component';
 import { DeleteOrganizationsComponent } from './portal/VxrAdmin/deleteorganizations/deleteorganizations.component';
 import { UpdateOrganizationsComponent } from './portal/VxrAdmin/updateorganizations/updateorganization.scomponent';
+import { CommonModule } from '@angular/common';
+import { UserProfileComponent } from './portal/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -46,9 +48,11 @@ import { UpdateOrganizationsComponent } from './portal/VxrAdmin/updateorganizati
     UpdateOrganizationComponent,
     DeleteOrganizationsComponent,
     UpdateOrganizationsComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

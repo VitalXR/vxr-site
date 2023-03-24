@@ -65,4 +65,19 @@ export class PortalService {
 
     return await API.get(api, path, init);
   }
+
+  async editUserInfo(fname: string, lname: string, email: string) {
+    const user = await Auth.currentAuthenticatedUser();
+    console.log(user);
+    // Auth.updateUserAttributes()
+  }
+
+  async getUserAttributes() {
+    return await Auth.userAttributes(await Auth.currentAuthenticatedUser());
+  }
+
+  async updateUserAttributes(attrs: object) {
+    if (Object.keys(attrs).length !== 0) 
+      await Auth.updateUserAttributes(await Auth.currentAuthenticatedUser(), attrs);
+  }
 }

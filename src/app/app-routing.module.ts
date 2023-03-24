@@ -18,6 +18,7 @@ import { SignupFormsComponent } from './signup/signup-forms/signup-forms.compone
 import { SignupComponent } from './signup/signup.component';
 import { DeleteOrganizationsComponent } from './portal/VxrAdmin/deleteorganizations/deleteorganizations.component';
 import { UpdateOrganizationsComponent } from './portal/VxrAdmin/updateorganizations/updateorganization.scomponent';
+import { UserProfileComponent } from './portal/user-profile/user-profile.component';
 
 const routes: Routes = [
   // Home endpoints
@@ -45,6 +46,7 @@ const routes: Routes = [
 
   // User change password
   { path: 'user/confirm', component: ConfirmuUserComponent },
+  { path: 'user/profile', component: UserProfileComponent }
 ];
 
 @NgModule({
