@@ -48,7 +48,7 @@ export class LoginComponent {
 
   async onSubmit() {
     if (!this.isValidPasswd(this.newPasswd)) {
-      this.error_message = "invalid password";
+      this.error_message = "Password must be 8 characters, and include 1 uppercase, lowercase, and special character.";
       return;
     }
     try {
@@ -71,7 +71,7 @@ export class LoginComponent {
 
     localStorage.setItem('accessLevel', usertype)
     localStorage.setItem('login', 'true');
-    localStorage.setItem('org_id', this.user.attributes['custom:org_id']);
+    // localStorage.setItem('org_id', this.user.attributes['custom:org_id']);
 
     this.reset();
     this.router.navigateByUrl(url);

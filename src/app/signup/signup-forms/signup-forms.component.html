@@ -9,8 +9,12 @@
       <th *ngFor="let c of columns" class="table_cell">{{c}}</th>
     </tr>
     <tr *ngFor="let row of data">
-      <td *ngFor="let column of row" class="table_cell">{{column}}</td>
-      <td><button class="btn" (click)="onApprove(row)">Approve</button></td>
+      <td *ngFor="let column of row" class="table_cell">
+        <span *ngIf="column != 'false' && column != 'true'">
+        {{column}}
+        </span>
+      </td>
+      <td><button *ngIf="row[row.length-1] != 'true'" class="btn" (click)="onApprove(row)">Approve</button></td>
     </tr>
     <div style="padding-top: 10px"></div>
   </table>
