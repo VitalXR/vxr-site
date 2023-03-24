@@ -71,7 +71,7 @@ export class LoginComponent {
 
     localStorage.setItem('accessLevel', usertype)
     localStorage.setItem('login', 'true');
-    localStorage.setItem('org_id', this.user.attributes['custom:org_id']);
+    // localStorage.setItem('org_id', this.user.attributes['custom:org_id']);
 
     this.reset();
     this.router.navigateByUrl(url);
