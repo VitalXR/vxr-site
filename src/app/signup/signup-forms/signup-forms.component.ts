@@ -37,12 +37,16 @@ export class SignupFormsComponent {
     init();
   }
 
+  approving: boolean = false;
+
   dataJson: string;
   data: string[][];
   failed: string;
   columns: string[];
 
-  onApprove(row: string[]) {
+  async onApprove(row: string[]) {
+    if (this.approving) return;
+
     row[row.length - 1] = 'true'
     const api = 'VitalXRBackendStack';
     const path = '/signup/approve';
@@ -54,15 +58,15 @@ export class SignupFormsComponent {
       }
     };
 
-    API.post(api, path, init)
-      .then(res => console.log(res))
-      .then(() => {
-        this.getData();
-        this.parseDataJson();
-      })
-      .catch(e => console.log(e));
-
-      this.router.navigateByUrl("/portal")
+    try {
+      await API.post(api, path, init);
+      await this.getData();
+      this.parseDataJson();
+      this.approving = false;
+    }
+    catch (e) {
+      console.log(e);
+    }
   }
 
   private async getData() {
@@ -74,7 +78,6 @@ export class SignupFormsComponent {
 
     try {
       const res = await API.get(api, path, init);
-      console.log(res);
       this.failed = null;
       this.dataJson = res.data.body;
     }
@@ -85,7 +88,6 @@ export class SignupFormsComponent {
 
   private parseDataJson() {
     this.data.splice(0, this.data.length);
-    console.log(this.data);
     const data: string[][] = JSON.parse(this.dataJson);
     data.forEach(row => {
       row[row.length-1] = new Date(parseInt(row[row.length-1]) * 1000).toLocaleString();

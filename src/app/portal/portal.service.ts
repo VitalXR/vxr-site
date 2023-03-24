@@ -83,9 +83,12 @@ export class PortalService {
 
   async getOrgId(): Promise<string> {
     const attrs = await Auth.userAttributes(await Auth.currentAuthenticatedUser());
+    console.log(attrs);
     const orgId = attrs.find(attr => {
-      return attr.Value === 'custom:org_id';
+      return attr.Name === 'custom:org_id';
     });
+    console.log(orgId);
+
     return orgId.Value;
   }
 }

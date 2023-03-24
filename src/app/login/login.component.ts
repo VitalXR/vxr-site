@@ -53,6 +53,7 @@ export class LoginComponent {
     }
     try {
       this.user = await this.portalService.confirmUser(this.user, this.newPasswd);
+      console.log('HELLO 1');
       this.onSignInSuccess('/portal');
       this.needConfirm = false;
     }
@@ -63,14 +64,18 @@ export class LoginComponent {
   }
 
   onSignInSuccess(url: string) {
+    Auth.currentAuthenticatedUser().then(u => console.log(u));
     let groups: string[] = this.user.signInUserSession.idToken.payload['cognito:groups'];
 
     let usertype = 'NonAdmin';
     if(groups.indexOf("VxrAdmin") !== -1) usertype = 'VxrAdmin';
     else if(groups.indexOf('OrgAdmin') !== -1) usertype = 'OrgAdmin';
 
+    console.log("HELLO 2");
+
     localStorage.setItem('accessLevel', usertype)
     localStorage.setItem('login', 'true');
+    const orgId = this.portalService.getOrgId().then(id => console.log(id));
     // localStorage.setItem('org_id', this.user.attributes['custom:org_id']);
 
     this.reset();
