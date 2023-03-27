@@ -24,10 +24,11 @@ export class PortalComponent {
   constructor(router: Router) {
     this.router = router
     this.userlevel = localStorage.getItem('accessLevel')
-    this.userlevel = 'NonAdmin'
+    // this.userlevel = 'OrgAdmin'
   }
 
   route(url: string){
+    console.log('Routing to ' + url)
     this.router.navigateByUrl(url)
   }
 }

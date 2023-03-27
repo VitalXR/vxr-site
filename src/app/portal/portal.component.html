@@ -5,17 +5,17 @@
 </div>
 
 <button class="btn" *ngIf="userlevel == 'NonAdmin'"
-  (mouseover)="viewinformation_btnText='View Information >'" 
-  (mouseout)="viewinformation_btnText='View Information'"
-  (click)="route('/portal')">
+  (mouseover)="viewinformation_btnText='View Profile >'" 
+  (mouseout)="viewinformation_btnText='View Profile'"
+  (click)="route('/user/profile')">
   {{viewinformation_btnText || 'View Information'}}
 </button>
 
 <button class="btn" *ngIf="userlevel == 'NonAdmin'"
-  (mouseover)="updateinformation_btnText='Update Information >'" 
-  (mouseout)="updateinformation_btnText='Update Information'"
-  (click)="route('/portal')">
-  {{updateinformation_btnText || 'Update Information'}}
+  (mouseover)="updateinformation_btnText='Change Password >'" 
+  (mouseout)="updateinformation_btnText='Change Password'"
+  (click)="route('/user/confirm')">
+  {{updateinformation_btnText || 'Change Password'}}
 </button>
 
 <button class="btn" *ngIf="userlevel == 'NonAdmin'"
