@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { Auth } from 'aws-amplify';
+import { Auth, Hub } from 'aws-amplify';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +13,7 @@ export class AppComponent {
   router: Router;
   current_component: String;
   logged_in: Boolean = false
+  unsub: () => void;
 
   constructor(router: Router) {
     this.router = router;

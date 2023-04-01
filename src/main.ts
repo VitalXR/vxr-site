@@ -13,9 +13,19 @@ if (environment.production) {
 Amplify.configure({
   Auth: {
     region: 'ca-central-1',
-    userPoolId: 'ca-central-1_mXT7oFuXG',
-    userPoolWebClientId: '2ofpc2lft33nbe2nklbu46rlis',
-    authenticationFlowType: 'USER_PASSWORD_AUTH'
+    userPoolId: 'ca-central-1_eHW1dbu3l',
+    userPoolWebClientId: 'jjtn2j7j876a13rfj6oqbf2j6',
+    authenticationFlowType: 'USER_PASSWORD_AUTH',
+    oauth: {
+      domain: 'https://vxr-fed-test.auth.ca-central-1.amazoncognito.com',
+      scope: [
+        'email',
+        'openid',
+        'phone'
+      ],
+      redirectSignIn: 'http://localhost:4200/login/callback',
+      responseType: 'token'
+    }
   },
   API: {
     endpoints: [
@@ -37,7 +47,7 @@ Amplify.configure({
       }
     ]
   }
-})
+});
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));

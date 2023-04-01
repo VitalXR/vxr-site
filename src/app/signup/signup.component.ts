@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SignupService } from './signup.service';
+import { CognitoHostedUIIdentityProvider } from '@aws-amplify/auth';
+import { Auth, Amplify } from 'aws-amplify';
 
 @Component({
   templateUrl: './signup.component.html',
@@ -8,13 +10,13 @@ import { SignupService } from './signup.service';
 })
 export class SignupComponent {
   constructor(private signupService: SignupService ) {}
-
+  
   company = '';
   fname = '';
   lname = '';
   email = '';
   reason = '';
-  submit = false
+  submit = false;
   
   onSubmit() {
     this.signupService.signup(this.company, this.fname, this.lname, this.email, this.reason)

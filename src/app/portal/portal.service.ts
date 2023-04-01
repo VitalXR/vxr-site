@@ -7,6 +7,7 @@ export class PortalService {
   addOrgUrl = 'https://0xuxtr2c59.execute-api.us-east-1.amazonaws.com/default/Organizations';
   inviteUserUrl = 'https://tdsy3cgt61.execute-api.ca-central-1.amazonaws.com/dev/user';
   confirmUserUrl = 'https://tdsy3cgt61.execute-api.ca-central-1.amazonaws.com/dev/user/confirm';
+  newSignOnUrl = 'https://tdsy3cgt61.execute-api.ca-central-1.amazonaws.com/dev/user/first-login';
 
   constructor(private http:HttpClient) {}
 
@@ -30,7 +31,9 @@ export class PortalService {
     const path = '/user';
     const init = {
       response: true,
-      body: { email }
+      body: {
+        email
+      }
     };
     
     const res = await API.post(api, path, init);
@@ -90,5 +93,9 @@ export class PortalService {
     console.log(orgId);
 
     return orgId.Value;
+  }
+
+  newSignOn(email: string) {
+    return this.http.post(this.newSignOnUrl, {email});
   }
 }

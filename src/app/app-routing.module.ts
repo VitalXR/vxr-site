@@ -19,6 +19,7 @@ import { SignupComponent } from './signup/signup.component';
 import { DeleteOrganizationsComponent } from './portal/VxrAdmin/deleteorganizations/deleteorganizations.component';
 import { UpdateOrganizationsComponent } from './portal/VxrAdmin/updateorganizations/updateorganization.scomponent';
 import { UserProfileComponent } from './portal/user-profile/user-profile.component';
+import { LoginCallback } from './login/callback/login-callback.component';
 
 const routes: Routes = [
   // Home endpoints
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'portal', component: PortalComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'login/callback', component: LoginCallback },
   { path: 'signup', component: SignupComponent },
 
   // VxrAdmin Endpoints

@@ -48,7 +48,7 @@ export class SignupFormsComponent {
     if (this.approving) return;
 
     row[row.length - 1] = 'true'
-    const api = 'VitalXRBackendStack';
+    const api = 'vxr-dev-ag';
     const path = '/signup/approve';
     const init = {
       response: true,
@@ -59,7 +59,8 @@ export class SignupFormsComponent {
     };
 
     try {
-      await API.post(api, path, init);
+      const res = await API.post(api, path, init);
+      console.log(res);
       await this.getData();
       this.parseDataJson();
       this.approving = false;

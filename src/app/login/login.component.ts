@@ -20,15 +20,26 @@ export class LoginComponent {
   pswd: string = "";
   error_message: string = "";
   router: Router;
-  btnText: String;
+  btnText: String = "Submit";
   needConfirm: boolean;
 
   newPasswd = '';
+  tempPasswd = '';
   submit = false;
+  newLogin = false;
   user: any;
 
   constructor(private portalService: PortalService, router: Router) {
     this.router = router
+  }
+
+  onContinueWithGoogle() {
+    const {oauth, userPoolWebClientId} = Auth.configure();
+    const scopes = (<string[]>oauth.scope).join(' ');
+
+    const url = `${oauth.domain}/oauth2/authorize?identity_provider=Google&redirect_uri=${oauth['redirectSignIn']}&response_type=TOKEN&client_id=${userPoolWebClientId}&scope=${scopes}`;
+
+    window.location.href = url;
   }
 
   async checkCredentials(): Promise<LoginResponse> {
@@ -52,7 +63,9 @@ export class LoginComponent {
       return;
     }
     try {
-      this.user = await this.portalService.confirmUser(this.user, this.newPasswd);
+      const user = await Auth.signIn(this.username, this.tempPasswd);
+      console.log(user);
+      this.user = await this.portalService.confirmUser(user, this.newPasswd);
       console.log('HELLO 1');
       this.onSignInSuccess('/portal');
       this.needConfirm = false;
@@ -61,6 +74,32 @@ export class LoginComponent {
       console.log(e);
       console.log(Object.entries(e));
     }
+  }
+
+  onNewLogin() {
+    this.newLogin = true;
+  }
+
+  onNewLoginSubmitted() {
+    this.portalService.newSignOn(this.username).subscribe(e => {
+      console.log(e);
+      switch (e['body']) {
+        case 'UserNameExistsException':
+          this.error_message = 'Looks like your account already exists. Please try to sign in.';
+          break;
+        case 'Inernal Server Error':
+          this.error_message = 'Server error. Please try again later';
+          break;
+        case 'Not Found':
+          this.error_message = 'Looks like your account already exists or you didn\'t receive an invite from your administrator';
+          break;
+        default:
+          if (e['statusCode'] === 200) {
+            this.newLogin = false;
+            this.needConfirm = true;
+          }
+      }
+    });
   }
 
   onSignInSuccess(url: string) {
