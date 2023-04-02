@@ -11,9 +11,6 @@ export class ContactComponent {
   submit = false
 
   onSubmit() {
-    console.log(`Name: ${this.name}`);
-    console.log(`Email: ${this.email}`);
-    console.log(`Message: ${this.message}`);
     this.submit = true
   }
 }

@@ -45,7 +45,6 @@ export class LoginComponent {
   async checkCredentials(): Promise<LoginResponse> {
     try {
       this.user = await Auth.signIn(this.username, this.pswd);
-      console.log(this.user);
       if (this.user.challengeName = 'NEW_PASSWORD_REQUIRED' && this.user.signInUserSession === null)
         return LoginResponse.NEW_PASSWORD_REQUIRED;
 
@@ -64,9 +63,7 @@ export class LoginComponent {
     }
     try {
       const user = await Auth.signIn(this.username, this.tempPasswd);
-      console.log(user);
       this.user = await this.portalService.confirmUser(user, this.newPasswd);
-      console.log('HELLO 1');
       this.onSignInSuccess('/portal');
       this.needConfirm = false;
     }
@@ -109,8 +106,6 @@ export class LoginComponent {
     let usertype = 'NonAdmin';
     if(groups.indexOf("VxrAdmin") !== -1) usertype = 'VxrAdmin';
     else if(groups.indexOf('OrgAdmin') !== -1) usertype = 'OrgAdmin';
-
-    console.log("HELLO 2");
 
     localStorage.setItem('accessLevel', usertype)
     localStorage.setItem('login', 'true');

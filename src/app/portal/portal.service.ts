@@ -19,7 +19,6 @@ export class PortalService {
       "total_users": total_users,
       "isDeleted": deleted
     }
-    console.log(JSON.stringify(body))
     // let header = new HttpHeaders();
     // header = header.append('content-type', 'application/json');
     // return this.http.post(this.URL , body, {headers : header});
@@ -37,7 +36,6 @@ export class PortalService {
     };
     
     const res = await API.post(api, path, init);
-    console.log(res);
   }
 
   async confirmUser(user: any, newPasswd: string) {
@@ -71,7 +69,6 @@ export class PortalService {
 
   async editUserInfo(fname: string, lname: string, email: string) {
     const user = await Auth.currentAuthenticatedUser();
-    console.log(user);
     // Auth.updateUserAttributes()
   }
 
@@ -86,16 +83,28 @@ export class PortalService {
 
   async getOrgId(): Promise<string> {
     const attrs = await Auth.userAttributes(await Auth.currentAuthenticatedUser());
-    console.log(attrs);
     const orgId = attrs.find(attr => {
       return attr.Name === 'custom:org_id';
     });
-    console.log(orgId);
 
     return orgId.Value;
   }
 
   newSignOn(email: string) {
     return this.http.post(this.newSignOnUrl, {email});
+  }
+
+  async newSSO(email: string, username: string) {
+    const api = 'vxr-dev-ag';
+    const path = '/user/first-sso';
+    const init = {
+      response: true,
+      body: {
+        email,
+        username
+      }
+    }
+
+    const res = await API.post(api, path, init);
   }
 }

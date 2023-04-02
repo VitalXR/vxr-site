@@ -24,7 +24,6 @@ export class UpdateOrganizationsComponent {
         e[i] = e[i].slice(1, e[i].length-1)
       }
       this.data = e
-      console.log(this.o_data)
     })
 
   }
@@ -35,7 +34,6 @@ export class UpdateOrganizationsComponent {
     this.submit = true
     for(let i = 0; i < this.data.length; i++) {
       if(this.data[i][0] != this.o_data[i][1]){
-        console.log(this.o_data[i][0], 'name', this.data[i][0])
         this.orgService.updateOrg(this.o_data[i][0], 'name', this.data[i][0])
       }
       if (this.data[i][1] != this.o_data[i][2]) {

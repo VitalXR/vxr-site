@@ -60,7 +60,6 @@ export class SignupFormsComponent {
 
     try {
       const res = await API.post(api, path, init);
-      console.log(res);
       await this.getData();
       this.parseDataJson();
       this.approving = false;

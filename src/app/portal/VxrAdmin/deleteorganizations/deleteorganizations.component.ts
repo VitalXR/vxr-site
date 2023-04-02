@@ -34,7 +34,6 @@ export class DeleteOrganizationsComponent {
   }
 
   delete(row) {
-    console.log('clicked', this.data_unfiltered[row])
     this.orgService.deleteOrg(this.data_unfiltered[row][0]).subscribe(e => {console.log(e)})
     this.router.navigateByUrl("/portal")
   }
