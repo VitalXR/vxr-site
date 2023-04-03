@@ -8,6 +8,7 @@
   box-shadow: -5px 5px rgba(0,0,0,0.09);
   max-width: 200px;
   margin-top: 30px;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -43,4 +44,15 @@
   font-size: 26px;
   font-weight: 700px;
   margin-left: 20px;
+}
+
+.text_display {
+  font-size: 20px; 
+  color: white;
+}
+
+.click_text_display {
+  color: #1fd7e0;
+  font-size: 20px; 
+  cursor: pointer
 }
