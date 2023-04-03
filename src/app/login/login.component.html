@@ -42,7 +42,7 @@
   <div *ngIf="newLogin">
     <form (submit)="onNewLoginSubmitted()" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
       <input class="input_field" type="email" [(ngModel)]="username" name="email" placeholder="Email Address" required>
-      <a (click)="onContinueWithGoogle()">Continue with Google</a>
+      <a (click)="onContinueWithGoogle()" class="click_text_display">Continue with Google</a>
       <div style="display: flex; justify-content: flex-end;">
         <button class="btn" type="submit" (mouseover)="btnText='Submit >'" (mouseout)="btnText='Submit'">
           {{btnText}}
