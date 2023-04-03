@@ -23,7 +23,7 @@ Amplify.configure({
         'openid',
         'phone'
       ],
-      redirectSignIn: 'http://localhost:4200/login/callback',
+      redirectSignIn: 'http://vitalxr.github.io/vxr-site/home/login/callback',
       responseType: 'token'
     }
   },
